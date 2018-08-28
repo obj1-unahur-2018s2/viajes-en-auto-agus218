@@ -1,3 +1,6 @@
+import clientes.*
+
+/* choferes */
 
 object roxana {
 	method precioViaje(cliente, kms) { 
@@ -24,26 +27,26 @@ object mariela {
        var precioNormal = cliente.precioPactadoPorKm() * kms
        return precioNormal.max(50)
 }
-
-
-
+}
 object juana {
-	method precioViaje(cliente, kms)  { 
-	return cliente.precioPactadoPorKm() * kms
-	
+	method precioViaje(cliente, kms) {
+		return (if (kms <= 8) {100} else {200})
 	}
 }
 
 
-object ludmila {
-	method precioPactadoPorKm() { return 18 }
-}
 
-object anaMaria {
-	method precioPactadoPorKm() { return 30 } 
-}
-
-object teresa {
-	method precioPactadoPorKm() { return 22 }
+object lucia {
+	//var chofer
+	//method chofer(){ }
 	
+	var choferReemplazado = null
+	method reemplazaA(chofer) {
+		choferReemplazado = chofer
+		}
+	method precioViaje(cliente, kms) { 
+		return choferReemplazado.precioViaje(cliente, kms)
+	}
 }
+
+
